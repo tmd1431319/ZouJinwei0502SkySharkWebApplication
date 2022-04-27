@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -26,7 +29,7 @@ namespace ZouJinwei0502SkySharkWebApplication.BM
             DataSet dataset = new DataSet();
             adapter.Fill(dataset, "FlightNo");
             conn.Close();
-            foreach(DataRow row in dataset.Tables["FlightNo"],Rows)
+            foreach(DataRow row in dataset.Tables["FlightNo"].Rows)
                 {
                 if (row[0].ToString().Trim() == txtFlightNumber.Text.Trim())
                 {
@@ -59,17 +62,17 @@ namespace ZouJinwei0502SkySharkWebApplication.BM
                     "VALUE (@FltNo, @Origin, @Destination, @Deptime, @Arrtime, @AircraftType," +
                     "@SeatsExec, @SeatsBn, @FareExec, @FareBn, @LaunchDate)";
                 SqlCommand cmd2 = new SqlCommand(updateSql, conn);
-                cmd2.Parameters.AddwithValue("@FltNo", txtFlightNumber.Text.Trim());
-                cmd2.Parameters.AddwithValue("@Origin", txtOriginPlace.Text.Trim());
-                cmd2.Parameters.AddwithValue("@FltNo", txtDestination.Text.Trim());
-                cmd2.Parameters.AddwithValue("@Deptime", deptime.ToString());
-                cmd2.Parameters.AddwithValue("@Arrtime", arrtime.ToString());
-                cmd2.Parameters.AddwithValue("@AircrafType", txtAircraftType.Text.Trim());
-                cmd2.Parameters.AddwithValue("@SeatsExec", Convert.ToInt32(txtNoOfExecSeats.Text.Trim()));
-                cmd2.Parameters.AddwithValue("@SeatsBn", Convert.ToInt32(txtNoOfBusiSeats.Text.Trim()));
-                cmd2.Parameters.AddwithValue("@FareExec", Convert.ToInt32(txtExecFare.Text.Trim()));
-                cmd2.Parameters.AddwithValue("@FareBn", Convert.ToInt32(txtBusiFare.Text.Trim()));
-                cmd2.Parameters.AddwithValue("@LaunchDate", DateTime.Today.Date.ToShortDateString());
+                cmd2.Parameters.AddWithValue("@FltNo", txtFlightNumber.Text.Trim());
+                cmd2.Parameters.AddWithValue("@Origin", txtOriginPlace.Text.Trim());
+                cmd2.Parameters.AddWithValue("@FltNo", txtDestination.Text.Trim());
+                cmd2.Parameters.AddWithValue("@Deptime", deptime.ToString());
+                cmd2.Parameters.AddWithValue("@Arrtime", arrtime.ToString());
+                cmd2.Parameters.AddWithValue("@AircrafType", txtAircraftType.Text.Trim());
+                cmd2.Parameters.AddWithValue("@SeatsExec", Convert.ToInt32(txtNoOfExecSeats.Text.Trim()));
+                cmd2.Parameters.AddWithValue("@SeatsBn", Convert.ToInt32(txtNoOfBusiSeats.Text.Trim()));
+                cmd2.Parameters.AddWithValue("@FareExec", Convert.ToInt32(txtExecFare.Text.Trim()));
+                cmd2.Parameters.AddWithValue("@FareBn", Convert.ToInt32(txtBusiFare.Text.Trim()));
+                cmd2.Parameters.AddWithValue("@LaunchDate", DateTime.Today.Date.ToShortDateString());
                 int n = cmd2.ExecuteNonQuery();
 
 

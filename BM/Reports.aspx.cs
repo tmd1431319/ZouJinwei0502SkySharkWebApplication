@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 namespace ZouJinwei0502SkySharkWebApplication.BM
 {
     public partial class Reports : System.Web.UI.Page
@@ -20,56 +22,75 @@ namespace ZouJinwei0502SkySharkWebApplication.BM
             month = lstMonth.SelectedItem.Text.Trim();
             year = lstYear.SelectedItem.Text.Trim();
             date = month + "/01/" + year;
-            String ConnectionSting = ConfigurationManager.ConnectionStrings["ARpDatabaseConnectionString"].ConnectionString;
-            SqlConnection conn = new SqlConnection(ConnectionSting);
+
+          
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ARPDatabaseConnectionString"].ConnectionString);
             conn.Open();
-            string selectSql = "SELECT FltNo, SUM(Fare) AS fare from dtDepartedFlights " +
-                "where (DataOfJourney>@date) group by FltNo";
-            SqlCommand cmd = new SqlCommand(selectSql, conn);
-            cmd.Parameter.AddWithValue("@date", date);
-            SqlDateAdapter adapter = new SqlDateAdapter(cmd);
-            DataSet dataSet = new DataSet();
-            adapter.Fill(dataSet, "fare");
+            
+            string queryString = "SELECT FltNo, SUM(Fare) AS fare from dtDepartedFlights  where (DateOfJourney>@date) group by  FltNo";
+            SqlDataAdapter adapter = new SqlDataAdapter();
+
+
+           
+            SqlCommand cmd = new SqlCommand(queryString, conn);
+            cmd.Parameters.AddWithValue("@date", date);
+
+            adapter.SelectCommand = cmd;
+
+            DataSet dataset = new DataSet();
+            adapter.Fill(dataset, "fare");
             conn.Close();
-            DataView source = new DataView(dataSet.Tables["fare"]);
-            DataGrid1.DataSource = source;
-            DataGrid1.DataBind();
+            DataView source = new DataView(dataset.Tables["fare"]);
+             
+            GridView1.DataSource = source;
+            GridView1.DataBind();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            String ConnectionSting = ConfigurationManager.ConnectionStrings["ARpDatabaseConnectionString"].ConnectionString;
-            SqlConnection conn = new SqlConnection(ConnectionSting);
+            
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ARPDatabaseConnectionString"].ConnectionString);
             conn.Open();
-            string selectSql = "SELECT FltNO, DateOfJourney, SUM(Fare) AS Revenue from dtDepartedFlights " +
-                "Group BY DateOfJourney, FltNo";
-            SqlCommand cmd = new SqlCommand(selectSql, conn);
-        
-            SqlDateAdapter adapter = new SqlDateAdapter(cmd);
-            DataSet dataSet = new DataSet();
-            adapter.Fill(dataSet, "Usage");
+            
+            string queryString = "SELECT FltNo, DateOfJourney, SUM(Fare) AS Revenue from dtDepartedFlights GROUP BY DateOfJourney, FltNo";
+
+
+            
+            SqlCommand cmd = new SqlCommand(queryString, conn);
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = cmd;
+            DataSet dataset = new DataSet();
+            adapter.Fill(dataset, "Usges");
             conn.Close();
-            DataView source = new DataView(dataSet.Tables["Usage"]);
-            DataGrid1.DataSource = source;
-            DataGrid1.DataBind();
+            DataView source = new DataView(dataset.Tables["Usges"]);
+            
+            GridView1.DataSource = source;
+            GridView1.DataBind();
         }
+
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            String ConnectionSting = ConfigurationManager.ConnectionStrings["ARpDatabaseConnectionString"].ConnectionString;
-            SqlConnection conn = new SqlConnection(ConnectionSting);
+            
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ARPDatabaseConnectionString"].ConnectionString);
             conn.Open();
-            string selectSql = "SELECT Top 100 Email, FareCollected,TotalTimesFlown from dtPassengerDetails order by TotalTimesFlown"; 
-              
-            SqlCommand cmd = new SqlCommand(selectSql, conn);
+            
+            string queryString = "SELECT Top 100 Email, FareCollected, TotalTimesFlown from dtPassengerDetails order by TotalTimesFlown";
 
-            SqlDateAdapter adapter = new SqlDateAdapter(cmd);
-            DataSet dataSet = new DataSet();
-            adapter.Fill(dataSet, "FreqFl");
+
+           
+            SqlCommand cmd = new SqlCommand(queryString, conn);
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = cmd;
+            DataSet dataset = new DataSet();
+            adapter.Fill(dataset, "FreqFI");
             conn.Close();
-            DataView source = new DataView(dataSet.Tables["FreqFl"]);
-            DataGrid1.DataSource = source;
-            DataGrid1.DataBind();
+            DataView source = new DataView(dataset.Tables["FreqFI"]);
+            
+            GridView1.DataSource = source;
+            GridView1.DataBind();
         }
     }
 }

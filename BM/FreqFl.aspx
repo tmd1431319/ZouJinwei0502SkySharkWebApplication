@@ -43,10 +43,10 @@
                     </td>
                 </tr>
                  <tr>
-                    <td class="auto-style1">Text1<asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList></td>
-                    <td>Text2<asp:DropDownList ID="DropDownList2" runat="server">
+                    <td class="auto-style1">Text1<asp:DropDownList ID="lstDisc1" runat="server"></asp:DropDownList></td>
+                    <td>Text2<asp:DropDownList ID="lstDics2" runat="server">
                         </asp:DropDownList>
-                        Text3<asp:DropDownList ID="DropDownList3" runat="server">
+                        Text3<asp:DropDownList ID="lstDisc3" runat="server">
                         </asp:DropDownList>
                      </td>
                     <td>
@@ -54,12 +54,14 @@
                      </td>
                 </tr>
                  <tr>
-                    <td class="auto-style1">Text1<asp:DropDownList ID="DropDownList4" runat="server"></asp:DropDownList></td>
-                    <td>Text2<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>Text3</td>
+                    <td class="auto-style1">Text1<asp:DropDownList ID="listTimeFollown" runat="server"></asp:DropDownList></td>
+                    <td>Text2<asp:TextBox ID="txtFare" runat="server"></asp:TextBox>Text3</td>
                     <td> <asp:Button ID="Button2" runat="server" Text="Button" OnClick="Button2_Click" /></td>
                 </tr>
                 <tr>
-                    <td class="auto-style1"></td>
+                    <td class="auto-style1">
+                        <asp:Label ID="lblMessage" runat="server"></asp:Label>
+                    </td>
                     <td>
                         <asp:Button ID="Button3" runat="server" Text="Button" Width="327px" OnClick="Button3_Click" /></td>
                     <td></td>
