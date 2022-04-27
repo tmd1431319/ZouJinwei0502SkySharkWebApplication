@@ -150,6 +150,15 @@ namespace ZouJinwei0502SkySharkWebApplication.LOB
         protected global::System.Web.UI.WebControls.Button btnNext;
 
         /// <summary>
+        /// lblMessageStep1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessageStep1;
+
+        /// <summary>
         /// WizardStep2 控件。
         /// </summary>
         /// <remarks>
@@ -276,6 +285,15 @@ namespace ZouJinwei0502SkySharkWebApplication.LOB
         protected global::System.Web.UI.WebControls.TextBox txtDepTime;
 
         /// <summary>
+        /// lblMessageStep2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessageStep2;
+
+        /// <summary>
         /// Label13 控件。
         /// </summary>
         /// <remarks>
@@ -337,5 +355,14 @@ namespace ZouJinwei0502SkySharkWebApplication.LOB
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancel;
+
+        /// <summary>
+        /// lblMessageStep3 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessageStep3;
     }
 }

@@ -27,7 +27,9 @@
                       <td>
                           <asp:Label ID="Label1" runat="server" Text="Cancel a  Reservation"></asp:Label>
                       </td>
-                      <td></td>
+                      <td>
+                          <asp:Label ID="lblMessage" runat="server"></asp:Label>
+                      </td>
                       <td></td>
                       
                 </tr>

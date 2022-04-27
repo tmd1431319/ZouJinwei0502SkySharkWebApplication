@@ -63,7 +63,9 @@
                                      <asp:Label ID="Label3" runat="server" Text="Flight Number"></asp:Label></td>
                                   <td>
                                       <asp:TextBox ID="txtFlightNo" runat="server"></asp:TextBox></td>
-                                  <td></td>
+                                  <td>
+                                      <asp:Label ID="lblMessage" runat="server"></asp:Label>
+                                 </td>
                              </tr>
                              <tr>
                                  <td>
@@ -121,7 +123,9 @@
 
                              </tr>
                               <tr>
-                                 <td></td>
+                                 <td>
+                                     <asp:Label ID="lblTicketStatus" runat="server"></asp:Label>
+                                  </td>
                                   <td></td>
                                   <td></td>
                              </tr>

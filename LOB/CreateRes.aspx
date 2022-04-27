@@ -1,5 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="CreateRes.aspx.cs" Inherits="ZouJinwei0502SkySharkWebApplication.LOB.CreateRes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style1 {
+            height: 22px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <form id="form1" runat="server">
@@ -93,7 +98,9 @@
                                  <td></td>
                              </tr>
                              <tr>
-                                 <td></td>
+                                 <td>
+                                     <asp:Label ID="lblMessageStep1" runat="server"></asp:Label>
+                                 </td>
                                  <td></td>
                                  <td></td>
                                  <td></td>
@@ -157,7 +164,9 @@
                                  <td></td>
                              </tr>
                               <tr>
-                                 <td></td>
+                                 <td>
+                                     <asp:Label ID="lblMessageStep2" runat="server"></asp:Label>
+                                  </td>
                                  <td></td>
                                  <td></td>
                                  <td></td>
@@ -197,7 +206,11 @@
                                      <asp:Button ID="btnCancel" runat="server" Text="Cancel" /></td>
                                  <td></td>
                              </tr>
-                             
+                              <tr>
+                                 <td class="auto-style1">
+                                     <asp:Label ID="lblMessageStep3" runat="server"></asp:Label>
+                                  </td>
+                                  </tr>
                               
                          </table>
                      </asp:WizardStep>
