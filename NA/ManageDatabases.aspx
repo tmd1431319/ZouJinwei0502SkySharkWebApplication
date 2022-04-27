@@ -55,7 +55,9 @@
                      
                 </tr>
                 <tr>
-                      <td></td>
+                      <td>
+                          <asp:Label ID="lblMessage" runat="server"></asp:Label>
+                      </td>
                       <td></td>
                       <td></td>
                       <td></td>
